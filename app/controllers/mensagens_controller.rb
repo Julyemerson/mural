@@ -1,6 +1,6 @@
 class MensagensController < ApplicationController
   before_action :set_mensagem, only: [:show, :edit, :update, :destroy]
-
+  protect_from_forgery
   # GET /mensagens
   # GET /mensagens.json
   def index

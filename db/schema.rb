@@ -10,6 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2019_07_02_170544) do
+
+  create_table "mensagens", force: :cascade do |t|
+    t.string "titulo"
+    t.text "corpo"
+    t.string "autor"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
