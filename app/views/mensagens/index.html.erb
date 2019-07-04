@@ -1,33 +1,38 @@
-<p id="notice"><%= notice %></p>
+<% if notice.present?  %>
+  <div id=" notice " class=" alert alert-success " role=" alert ">
+    <%= notice %>
+  </div>
+<% end %>
+
+<div class="float-md-right">
+  <%= link_to 'Nova Mensagem', new_mensagem_path, class: "btn btn-primary" %>
+</div>
 
 <h1>Mensagens</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Titulo</th>
-      <th>Corpo</th>
-      <th>Autor</th>
-      <th>Email</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<% if @mensagens.empty?  %>
+  <p>Nenhuma Mensagem Encontrada. </p>
+<% else  %>
+  <% @mensagens.each do |mensagem|  %>
+  <div class="card">
+    <div class="card-header">
+      <h5><%= mensagem.titulo %></h5>
+    </div>
+    <div class="card-body">
+      <%= mensagem.corpo %>
+    </div>
+    <div class="card-footer">
+      <div class="btn-group">
+        <%= link_to 'Detalhar', mensagem, class: 'btn btn-secondary btn-sm' %>
+        <%= link_to 'Editar', edit_mensagem_path(mensagem), class: 'btn btn-secondary btn-sm' %>
+        <%= link_to 'Excluir', mensagem, method: :delete, data: {confirm: ' Tem Certeza? ' }, class: 'btn btn-secondary btn-sm' %>
+      </div>
+      <div class="float-md-right">
+        <small>Enviada por: <%= mail_to mensagem.email, mensagem.autor %> em <%= mensagem.created_at.strftime("%d/%m/%Y") %></small>
+      </div>
+      </div>
+      </div>
+    <% end  %>
+  <%end %>
 
-  <tbody>
-    <% @mensagens.each do |mensagem| %>
-      <tr>
-        <td><%= mensagem.titulo %></td>
-        <td><%= mensagem.corpo %></td>
-        <td><%= mensagem.autor %></td>
-        <td><%= mensagem.email %></td>
-        <td><%= link_to 'Show', mensagem %></td>
-        <td><%= link_to 'Edit', edit_mensagem_path(mensagem) %></td>
-        <td><%= link_to 'Destroy', mensagem, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
-
-<%= link_to 'Nova Mensagem', new_mensagem_path %>

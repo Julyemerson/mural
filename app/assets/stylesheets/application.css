@@ -13,3 +13,23 @@
  *= require_tree .
  *= require_self
  */
+
+
+ body {
+    background-color: #EBEBEB !important;
+   }
+   .container {
+    background-color: #FFF;
+    border: 1px solid #D1D1D1;
+    margin: 1em;
+    padding: 1em;
+   }
+   .rounded-corners {
+    -moz-border-radius:7px;
+    -webkit-border-radius:7px;
+    border-radius:7px;
+   }
+   .card {
+    margin-bottom: 1em;
+   }
+   
