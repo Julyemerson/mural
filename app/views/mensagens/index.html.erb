@@ -1,7 +1,5 @@
 <% if notice.present?  %>
-  <div id=" notice " class=" alert alert-success " role=" alert ">
-    <%= notice %>
-  </div>
+  <%= render partial: 'notice' %>
 <% end %>
 
 <div class="float-md-right">
