@@ -28,7 +28,7 @@ class MensagensController < ApplicationController
 
     respond_to do |format|
       if @mensagem.save
-        format.html { redirect_to @mensagem, notice: 'Mensagem was successfully created.' }
+        format.html { redirect_to @mensagem, notice: 'Mensagem cadastrada com sucesso!' }
         format.json { render :show, status: :created, location: @mensagem }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class MensagensController < ApplicationController
   def update
     respond_to do |format|
       if @mensagem.update(mensagem_params)
-        format.html { redirect_to @mensagem, notice: 'Mensagem was successfully updated.' }
+        format.html { redirect_to @mensagem, notice: 'Mensagem atualizada com sucesso!' }
         format.json { render :show, status: :ok, location: @mensagem }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class MensagensController < ApplicationController
   def destroy
     @mensagem.destroy
     respond_to do |format|
-      format.html { redirect_to mensagens_url, notice: 'Mensagem was successfully destroyed.' }
+      format.html { redirect_to mensagens_url, notice: 'Mensagem apagada com sucesso!' }
       format.json { head :no_content }
     end
   end

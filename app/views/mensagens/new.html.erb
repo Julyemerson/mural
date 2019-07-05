@@ -1,5 +1,7 @@
-<h1>New Mensagem</h1>
+<div class="float-md-right">
+    <%= link_to 'Voltar', mensagens_path, class: 'btn btn-secondary' %>
+</div>
+
+<h1>Nova Mensagem</h1>
 
 <%= render 'form', mensagem: @mensagem %>
-
-<%= link_to 'Back', mensagens_path %>

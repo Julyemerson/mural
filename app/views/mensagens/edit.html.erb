@@ -1,6 +1,8 @@
-<h1>Editing Mensagem</h1>
+<div class="float-md-right btn-group">
+    <%= link_to 'Detalhar', @mensagem, class: "btn btn-secondary" %>
+    <%= link_to 'Voltar', mensagens_path, class: "btn btn-secondary" %>
+</div>
+
+<h1>Editar Mensagem</h1>
 
 <%= render 'form', mensagem: @mensagem %>
-
-<%= link_to 'Show', @mensagem %> |
-<%= link_to 'Back', mensagens_path %>
