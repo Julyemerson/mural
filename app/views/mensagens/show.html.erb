@@ -1,24 +1,25 @@
-<p id="notice"><%= notice %></p>
+<% if notice.present? %>
+  <div id="notice" class="alert alert-sucess" role="alert">
+    <%= notice %>
+  </div>
+<% end %>
 
-<p>
-  <strong>Titulo:</strong>
-  <%= @mensagem.titulo %>
-</p>
+<div class="float-md-right btn-group">
+  <%= link_to 'Voltar', mensagens_path, class: 'btn btn-secondary' %>
+  <%= link_to 'Editar', edit_mensagem_path(@mensagem), class: 'btn btn-secondary' %>
+  <%= link_to 'Excluir', @mensagem, method: :delete, data: { confirm: 'Tem Certeza?' }, class: 'btn btn-secondary' %>
+</div>
 
-<p>
-  <strong>Corpo:</strong>
-  <%= @mensagem.corpo %>
-</p>
+<h1>Detalhar Mensagem</h1>
 
-<p>
-  <strong>Autor:</strong>
-  <%= @mensagem.autor %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @mensagem.email %>
-</p>
-
-<%= link_to 'Edit', edit_mensagem_path(@mensagem) %> |
-<%= link_to 'Back', mensagens_path %>
+<div class="card">
+  <div class="card-header">
+    <h5><%= @mensagem.titulo %></h5>
+  </div>
+  <div class="card-body">
+    <%= @mensagem.corpo %>
+  </div>
+  <div class="card-footer">
+    <small>Enviada por <%= mail_to @mensagem.email, @mensagem.autor %> em <%= @mensagem.created_at.strftime("%d/%m/%Y") %></small>
+  </div>
+</div>
