@@ -17,7 +17,7 @@
       <h5><%= mensagem.titulo %></h5>
     </div>
     <div class="card-body">
-      <%= mensagem.corpo %>
+      <%= sanitize mensagem.corpo %>
     </div>
     <div class="card-footer">
       <div class="btn-group">

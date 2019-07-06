@@ -15,7 +15,7 @@
     <h5><%= @mensagem.titulo %></h5>
   </div>
   <div class="card-body">
-    <%= @mensagem.corpo %>
+    <%= sanitize @mensagem.corpo %>
   </div>
   <div class="card-footer">
     <small>Enviada por <%= mail_to @mensagem.email, @mensagem.autor %> em <%= @mensagem.created_at.strftime("%d/%m/%Y") %></small>

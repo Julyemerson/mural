@@ -1,6 +1,6 @@
 <%= simple_form_for @mensagem do |f| %>
   <%= f.input :titulo, label: ' Título ' %>
-  <%= f.input :corpo, as: :text %>
+  <%= f.input :corpo, as: :trix_editor %>
   <%= f.input :autor %>
   <%= f.input :email %>
   <%= f.button :submit, 'Enviar', class: 'btn-primary' %>
